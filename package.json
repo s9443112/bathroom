@@ -1,0 +1,11 @@
+{
+  "name": "bathroom",
+  "version": "1.0.0",
+  "description": "For bathroom information ad",
+  "main": "index.js",
+  "scripts": {
+    "test": "gogogo"
+  },
+  "author": "B10317039_DogHow",
+  "license": "ISC"
+}
