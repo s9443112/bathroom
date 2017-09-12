@@ -42,7 +42,7 @@ exports.index_test = function (req, res) {
 	var news = [];
 	var mysql = require('mysql');
 	var connection = mysql.createConnection({
-		host: '139.162.72.78',
+		host: 'localhost',
 		user: 'root',
 		password: 'game54176868',
 		database: 'BANG',
