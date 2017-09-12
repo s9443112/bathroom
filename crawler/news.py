@@ -9,22 +9,22 @@ from IPython.display import clear_output
 langs = []
 links = 'https://tw.news.yahoo.com/'
 
-gamer_html = open('gamer_html.txt',encoding = "utf-8",mode = "w")
+news_html = open('./crawler/news_html.txt',encoding = "utf-8",mode = "w")
 
 res = requests.get(links)
 res.encoding = 'utf-8'
-gamer_html.write(res.text)
+news_html.write(res.text)
 
-gamer_html.close()
+news_html.close()
 ##-----------------------------------------------------------------------------
 soup = BeautifulSoup(res.text.encode("utf-8"),'html.parser')
 news_table = soup.find('div',{'id':'mrt-node-Col2-1-BreakingNews'})
 news_table = news_table.find_all('li')
 #print(news_table)
 
-shop_list = open('get_html.txt',encoding = "utf-8",mode = 'w')
+shop_list = open('./crawler/news.txt',encoding = "utf-8",mode = 'w')
 
-for i in range(1,len(news_table)):
+for i in range(0,len(news_table)):
     try:
         title = news_table[i].find_all('a')[0].string
     except Exception as e:
@@ -36,8 +36,8 @@ for i in range(1,len(news_table)):
     except Exception as e:
         print ('pass')
     
-    time.sleep(randint(1,3))
-    clear_output()
+    #time.sleep(randint(1,3))
+    #clear_output()
     print (i)
     sys.stdout.flush()
 shop_list.close()
