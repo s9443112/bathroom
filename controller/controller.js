@@ -40,17 +40,58 @@ exports.index = function (req, res) {
 exports.index_test = function (req, res) {
 
 	var news = [];
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+		host: '139.162.72.78',
+		user: 'root',
+		password: 'game54176868',
+		database: 'BANG',
+	});
 
+	var callback = function (msg) {
+		res.render('index_test', {
+			title: '首頁',
+			news: news,
+			msg: msg
+		});
+	}
 
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '/../crawler/get_html.txt', 'utf8');
+	var data = fs.readFileSync(__dirname + '/../crawler/news.txt', 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
-	res.render('index_test', {
-		title: '首頁',
-		news: news
+
+	var sql = "SELECT * from 'message'"
+	connection.query(sql, function (error, result) {
+		if (error) throw error;
+		console.log(result);
+		callback(result);
 	});
 
+
+
+}
+
+exports.tables = function (req, res) {
+	res.render('tables');
+
+}
+
+exports.crawler = function (req, res) {
+	var callback = function () {
+		res.redirect('/index_test');
+	}
+
+	var exec = require('exec');
+
+	exec('python3 ./crawler/news.py', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
 
 }
