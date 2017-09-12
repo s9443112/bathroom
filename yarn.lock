@@ -254,6 +254,10 @@ events@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
 
+exec@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/exec/-/exec-0.2.1.tgz#2661f0bfc5532918629117cb9f80c7564af2c51f"
+
 express@^4.15.4:
   version "4.15.4"
   resolved "https://registry.yarnpkg.com/express/-/express-4.15.4.tgz#032e2253489cf8fce02666beca3d11ed7a2daed1"
@@ -534,6 +538,10 @@ proxy-addr@~1.1.5:
 punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
+
+python-shell@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/python-shell/-/python-shell-0.4.0.tgz#259c5470d885292b22e906a57b085f651752f956"
 
 qs@6.5.0:
   version "6.5.0"
