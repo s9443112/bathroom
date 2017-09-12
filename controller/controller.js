@@ -13,10 +13,6 @@ exports.index = function (req, res) {
 	var news = [];
 
 
-
-
-
-
 	var fs = require('fs');
 	var data = fs.readFileSync(__dirname + '/../crawler/get_html.txt', 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
@@ -43,7 +39,18 @@ exports.index = function (req, res) {
 
 exports.index_test = function (req, res) {
 
+	var news = [];
+
+
+	var fs = require('fs');
+	var data = fs.readFileSync(__dirname + '/../crawler/get_html.txt', 'utf8');
+	data.split(/\r?\n/).forEach(function (line) {
+		news.push(line);
+	});
 	res.render('index_test', {
-		title: '測試網頁'
-	})
+		title: '首頁',
+		news: news
+	});
+
+
 }
