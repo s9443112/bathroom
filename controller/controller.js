@@ -42,7 +42,7 @@ exports.index_test = function (req, res) {
 	var news = [];
 	var mysql = require('mysql');
 	var connection = mysql.createConnection({
-		host: 'localhost',
+		host: '139.162.72.78',
 		user: 's9443112',
 		password: 'game54176868',
 		database: 'BANG',
@@ -69,12 +69,31 @@ exports.index_test = function (req, res) {
 		callback(result);
 	});
 
-
-
 }
 
 exports.tables = function (req, res) {
 	res.render('tables');
+
+}
+
+exports.mqtt_recive = function (req, res) {
+
+	//console.log(req.query.msg);
+	msg = req.query.msg
+	var mqtt = require('mqtt');
+	var client = mqtt.connect('mqtt://140.125.33.105')
+
+	client.on('connect', function () {
+		client.subscribe('C8764');
+		client.publish('C8764', msg);
+	})
+	client.on('message', function (topic, message) {
+		console.log(message.toString());
+		client.end();
+	});
+
+	res.redirect('/index_test');
+
 
 }
 
@@ -93,5 +112,5 @@ exports.crawler = function (req, res) {
 		//process.exit(code);
 		callback();
 	});
-
+	
 }

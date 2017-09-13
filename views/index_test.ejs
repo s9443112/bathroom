@@ -782,7 +782,8 @@
                         <% for(i=0;i<msg.length;i++){ %>
                           <li>
                             <p>
-                              <input type="checkbox" class="flat"> <%= msg[i].content %></p>
+                              
+                              <a href="/mqtt_recive?msg=<%= msg[i].content %>"> <%= msg[i].content %></a></p>
                           </li>
                         <% } %>
 
