@@ -1,5 +1,6 @@
 var fs = require('fs');
 var readline = require('readline');
+var path = require('path');
 
 exports.index = function (req, res) {
 	//res.setHeader('status', 'success');
@@ -14,7 +15,7 @@ exports.index = function (req, res) {
 
 
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '../crawler/news.txt', 'utf8');
+	var data = fs.readFileSync(path.join(__dirname + '/../crawler/news.txt'), 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
@@ -57,7 +58,7 @@ exports.index_test = function (req, res) {
 	}
 
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '../crawler/news.txt', 'utf8');
+	var data = fs.readFileSync(path.join(__dirname + '/../crawler/news.txt'), 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
