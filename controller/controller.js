@@ -43,7 +43,7 @@ exports.index_test = function (req, res) {
 	var mysql = require('mysql');
 	var connection = mysql.createConnection({
 		host: 'localhost',
-		user: 'root',
+		user: 's9443112',
 		password: 'game54176868',
 		database: 'BANG',
 	});
@@ -62,7 +62,7 @@ exports.index_test = function (req, res) {
 		news.push(line);
 	});
 
-	var sql = "SELECT * from `message`";
+	var sql = "SELECT * FROM message";
 	connection.query(sql, function (error, result) {
 		if (error) throw error;
 		console.log(result);

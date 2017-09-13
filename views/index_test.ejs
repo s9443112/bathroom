@@ -37,7 +37,7 @@
     <div class="main_container">
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
-          
+
 
           <div class="clearfix"></div>
 
@@ -644,7 +644,7 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="/crawler">刷新爬蟲</a>
                       </li>
-                      
+
                     </ul>
                   </li>
                   <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -779,62 +779,13 @@
 
                     <div class="">
                       <ul class="to_do">
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 在非洲，每六十秒，就有一分鐘過去</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 凡是每天喝水的人，有高機率在100年內死去</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 每呼吸60秒，就減少一分鐘的壽命</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 誰能想的到，這名16歲少女，在四年前，只是一名12歲少女</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 台灣人在睡覺時，大多數的美國人都在工作</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 當蝴蝶在南半球拍了兩下翅膀，牠就會稍微飛高一點點</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 據統計，未婚生子的人數中有高機率為女性</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 只要每天省下買一杯奶茶的錢，十天後就能買十杯奶茶</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 當你的左臉被人打，那你的左臉就會痛</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 今年中秋節剛好是滿月、今年七夕恰逢鬼月、今年母親節正好是星期日</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 人被殺，就會死</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 台灣競爭力低落，在美國就連小學生都會說流利的英語</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 研究顯示，過越多生日的人越長壽</p>
-                        </li>
-                        <li>
-                          <p>
-                            <input type="checkbox" class="flat"> 當我眼睛閉上時，我就看不到</p>
-                        </li>
+                        <% for(i=0;i<msg.length;i++){ %>
+                          <li>
+                            <p>
+                              <input type="checkbox" class="flat"> <%= msg[i].content %></p>
+                          </li>
+                        <% } %>
+
                       </ul>
                     </div>
                   </div>
