@@ -14,7 +14,7 @@ exports.index = function (req, res) {
 
 
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '../crawler/get_html.txt', 'utf8');
+	var data = fs.readFileSync(__dirname + '../crawler/news.txt', 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
@@ -57,7 +57,7 @@ exports.index_test = function (req, res) {
 	}
 
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '/../crawler/news.txt', 'utf8');
+	var data = fs.readFileSync(__dirname + '../crawler/news.txt', 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
