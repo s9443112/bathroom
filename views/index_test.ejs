@@ -661,8 +661,8 @@
                         <div class="block">
                           <div class="block_content">
                             <h2 class="title">
-                              
-                              <a href = "/mqtt_recive?msg=<%= news[i] %>">
+
+                              <a href="/mqtt_recive?msg=<%= news[i] %>">
                                 <%= news[i] %>
                               </a>
                             </h2>
@@ -783,10 +783,13 @@
                         <% for(i=0;i<msg.length;i++){ %>
                           <li>
                             <p>
-                              
-                              <a href="/mqtt_recive?msg=<%= msg[i].content %>"> <%= msg[i].content %></a></p>
+
+                              <a href="/mqtt_recive?msg=<%= msg[i].content %>">
+                                <%= msg[i].content %>
+                              </a>
+                            </p>
                           </li>
-                        <% } %>
+                          <% } %>
 
                       </ul>
                     </div>
@@ -958,7 +961,7 @@
   <script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
   <!-- Custom Theme Scripts -->
-  <script src="/static/build/js/custom.min.js"></script>
+  <script src="/static/build/js/custom.js"></script>
 
 </body>
 
