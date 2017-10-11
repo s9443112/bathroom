@@ -1,6 +1,10 @@
 var fs = require('fs');
 var readline = require('readline');
 var path = require('path');
+var time = require('time');
+var json = require('jsonfile')
+
+
 
 exports.index = function (req, res) {
 	//res.setHeader('status', 'success');
@@ -27,6 +31,7 @@ exports.index = function (req, res) {
 exports.index_test = function (req, res) {
 
 	var news = [];
+	var weather = '';
 	var mysql = require('mysql');
 	var connection = mysql.createConnection({
 		host: '139.162.72.78',
@@ -39,7 +44,9 @@ exports.index_test = function (req, res) {
 		res.render('index_test', {
 			title: '首頁',
 			news: news,
-			msg: msg
+			msg: msg,
+			date: now.setTimezone("Asia/Taipei"),
+			weather: weather,
 		});
 	}
 
@@ -48,6 +55,11 @@ exports.index_test = function (req, res) {
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
+	var weather = fs.readFileSync(path.join(__dirname + '/../crawler/weather_week.json'), 'utf8');
+	console.log(weather);
+
+	var now = new time.Date();
+
 
 	var sql = "SELECT * FROM message";
 	connection.query(sql, function (error, result) {
@@ -98,5 +110,5 @@ exports.crawler = function (req, res) {
 		//process.exit(code);
 		callback();
 	});
-	
+
 }
