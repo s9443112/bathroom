@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('head',{title:'首頁'}) %>
+  <%- include('template/head',{title:'首頁'}) %>
 
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-      <%- include('left_col') %>
+      <%- include('template/left_col') %>
 
      
 
@@ -142,10 +142,10 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <h4>App Usage across versions</h4>
+                
                 <div class="widget_summary">
                   <div class="w_left w_25">
-                    <span>0.1.5.2</span>
+                    <span>工程學院</span>
                   </div>
                   <div class="w_center w_55">
                     <div class="progress">
@@ -162,7 +162,7 @@
 
                 <div class="widget_summary">
                   <div class="w_left w_25">
-                    <span>0.1.5.3</span>
+                    <span>管理學院</span>
                   </div>
                   <div class="w_center w_55">
                     <div class="progress">
@@ -178,7 +178,7 @@
                 </div>
                 <div class="widget_summary">
                   <div class="w_left w_25">
-                    <span>0.1.5.4</span>
+                    <span>設計學院</span>
                   </div>
                   <div class="w_center w_55">
                     <div class="progress">
@@ -194,7 +194,7 @@
                 </div>
                 <div class="widget_summary">
                   <div class="w_left w_25">
-                    <span>0.1.5.5</span>
+                    <span>人文與科學學院</span>
                   </div>
                   <div class="w_center w_55">
                     <div class="progress">
@@ -208,22 +208,7 @@
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>0.1.5.6</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>1k</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
+                
 
               </div>
             </div>
@@ -451,30 +436,27 @@
                   <div class="x_content">
                     <div class="dashboard-widget-content">
                       <div class="col-md-4 hidden-small">
-                        <h2 class="line_30">125.7k Views from 60 countries</h2>
+                        <h2 class="line_30">校園配置</h2>
 
                         <table class="countries_list">
                           <tbody>
                             <tr>
-                              <td>United States</td>
+                              <td>工程學院</td>
                               <td class="fs15 fw700 text-right">33%</td>
                             </tr>
                             <tr>
-                              <td>France</td>
+                              <td>管理學院</td>
                               <td class="fs15 fw700 text-right">27%</td>
                             </tr>
                             <tr>
-                              <td>Germany</td>
+                              <td>設計學院</td>
                               <td class="fs15 fw700 text-right">16%</td>
                             </tr>
                             <tr>
-                              <td>Spain</td>
+                              <td>人文與科學學院</td>
                               <td class="fs15 fw700 text-right">11%</td>
                             </tr>
-                            <tr>
-                              <td>Britain</td>
-                              <td class="fs15 fw700 text-right">10%</td>
-                            </tr>
+                            
                           </tbody>
                         </table>
                       </div>
@@ -485,7 +467,7 @@
               </div>
 
             </div>
-            <div class="row">
+            <div class="row"></div>
 
 
               <!-- Start to do list -->
@@ -655,7 +637,7 @@
       <!-- /footer content -->
     </div>
   </div>
-  <%- include('script') %>
+  <%- include('template/script') %>
 
 </body>
 
