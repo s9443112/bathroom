@@ -1,20 +1,17 @@
 var fs = require('fs');
 var readline = require('readline');
+var path = require('path');
 
 exports.index = function (req, res) {
 	//res.setHeader('status', 'success');
-
-
 	var test_data = {
 		"name": "Tom",
 		"class": "AAA"
 	}
 
 	var news = [];
-
-
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '../crawler/get_html.txt', 'utf8');
+	var data = fs.readFileSync(path.join(__dirname + '/../crawler/news.txt'), 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
@@ -23,16 +20,6 @@ exports.index = function (req, res) {
 		test_data: test_data,
 		news: news
 	});
-
-
-	/*
-	fs.readFile(__dirname + '/../crawler/get_html.txt', function (err, data) {
-		if (err) throw err;
-
-		//console.log(data.toString());
-		news = data.toString();
-	});*/
-
 
 }
 
@@ -57,7 +44,7 @@ exports.index_test = function (req, res) {
 	}
 
 	var fs = require('fs');
-	var data = fs.readFileSync(__dirname + '/../crawler/news.txt', 'utf8');
+	var data = fs.readFileSync(path.join(__dirname + '/../crawler/news.txt'), 'utf8');
 	data.split(/\r?\n/).forEach(function (line) {
 		news.push(line);
 	});
@@ -73,7 +60,6 @@ exports.index_test = function (req, res) {
 
 exports.tables = function (req, res) {
 	res.render('tables');
-
 }
 
 exports.mqtt_recive = function (req, res) {
