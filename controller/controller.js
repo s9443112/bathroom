@@ -60,7 +60,6 @@ exports.index_test = function (req, res) {
 
 exports.tables = function (req, res) {
 	res.render('tables');
-
 }
 
 exports.mqtt_recive = function (req, res) {
