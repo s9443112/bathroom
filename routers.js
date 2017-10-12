@@ -9,6 +9,7 @@ exports.setRequestUrl = function (app) {
         app.get('/mqtt_recive',controller.mqtt_recive);
         app.get('/tables',controller.tables);
         app.get('/crawler',controller.crawler);
+        app.get('/test',controller.test);
 }
         
 

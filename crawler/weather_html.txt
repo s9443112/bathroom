@@ -52,7 +52,7 @@
 <meta name="DC.coverage.t.min" content="2017-10-11" />
 <meta name="DC.coverage.t.max" content="2022-10-11" />
 <meta name="DC.Publisher" content="交通部中央氣象局" />
-<meta name="DC.Date" content="2017-10-11 16:45" />
+<meta name="DC.Date" content="2017-10-11 22:09" />
 <meta name="DC.Identifier" content="315070000H" />
 <meta name="DC.Relation" content="" />
 <meta name="DC.Rights" content="交通部中央氣象局" />
@@ -246,7 +246,7 @@ table.FcstBoxTable01 td a:hover{ color:#2f83cb; text-decoration:underline;}
 	<div id=ftext style='overflow: auto; height: 110px; border:#E68A00 4px double;padding:15px;line-height:25px;font-family:arial;font-size:12pt;color:#000000;font-weight: 550; '></div>
 
 <script>    readTXT('/V7/forecast/taiwan/Data/W50_10009.txt?','ftext','utf-8');
-</script><h3 class="CenterTitle">今明預報<span class="Issued">發布時間 : 2017/10/11 17:00 </span><!--發布時間  --></h3>
+</script><h3 class="CenterTitle">今明預報<span class="Issued">發布時間 : 2017/10/11 23:00 </span><!--發布時間  --></h3>
 	<!--CenterTitle -->
 	<table class="FcstBoxTable01" summary="編排用">
 		<thead>
@@ -259,11 +259,11 @@ table.FcstBoxTable01 td a:hover{ color:#2f83cb; text-decoration:underline;}
 		</tr>
 		</thead>
 		<tbody><tr>
-		<th scope="row">今晚至明晨 10/11 18:00~10/12 06:00</th>
-		<td>26 ~ 30</td>
+		<th scope="row">今晚至明晨 10/12 00:00~10/12 06:00</th>
+		<td>26 ~ 27</td>
 		<td>
-		<img src="../../symbol/weather/gif/night/06.gif" alt="陰時多雲" title="陰時多雲"></td>
-		<td>舒適至悶熱</td>
+		<img src="../../symbol/weather/gif/night/02.gif" alt="多雲" title="多雲"></td>
+		<td>舒適</td>
 		<td>10 %</td>
 		</tr><tr>
 		<th scope="row">明日白天 10/12 06:00~10/12 18:00</th>
