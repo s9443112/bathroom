@@ -143,6 +143,13 @@ exports.index_test = function (req, res) {
 exports.tables = function (req, res) {
 	res.render('tables');
 }
+exports.media = function (req, res) {
+	res.render('media');
+}
+exports.icon = function (req, res) {
+	res.render('icon');
+}
+
 
 exports.mqtt_recive = function (req, res) {
 
