@@ -49,10 +49,10 @@
 <meta name="DC.Format" content="text" />
 <meta name="DC.Source" content="交通部中央氣象局" />
 <meta name="DC.Language" content="中文" />
-<meta name="DC.coverage.t.min" content="2017-10-11" />
-<meta name="DC.coverage.t.max" content="2022-10-11" />
+<meta name="DC.coverage.t.min" content="2017-10-13" />
+<meta name="DC.coverage.t.max" content="2022-10-13" />
 <meta name="DC.Publisher" content="交通部中央氣象局" />
-<meta name="DC.Date" content="2017-10-11 22:09" />
+<meta name="DC.Date" content="2017-10-13 04:55" />
 <meta name="DC.Identifier" content="315070000H" />
 <meta name="DC.Relation" content="" />
 <meta name="DC.Rights" content="交通部中央氣象局" />
@@ -246,7 +246,7 @@ table.FcstBoxTable01 td a:hover{ color:#2f83cb; text-decoration:underline;}
 	<div id=ftext style='overflow: auto; height: 110px; border:#E68A00 4px double;padding:15px;line-height:25px;font-family:arial;font-size:12pt;color:#000000;font-weight: 550; '></div>
 
 <script>    readTXT('/V7/forecast/taiwan/Data/W50_10009.txt?','ftext','utf-8');
-</script><h3 class="CenterTitle">今明預報<span class="Issued">發布時間 : 2017/10/11 23:00 </span><!--發布時間  --></h3>
+</script><h3 class="CenterTitle">今明預報<span class="Issued">發布時間 : 2017/10/13 05:00 </span><!--發布時間  --></h3>
 	<!--CenterTitle -->
 	<table class="FcstBoxTable01" summary="編排用">
 		<thead>
@@ -259,24 +259,24 @@ table.FcstBoxTable01 td a:hover{ color:#2f83cb; text-decoration:underline;}
 		</tr>
 		</thead>
 		<tbody><tr>
-		<th scope="row">今晚至明晨 10/12 00:00~10/12 06:00</th>
-		<td>26 ~ 27</td>
-		<td>
-		<img src="../../symbol/weather/gif/night/02.gif" alt="多雲" title="多雲"></td>
-		<td>舒適</td>
-		<td>10 %</td>
-		</tr><tr>
-		<th scope="row">明日白天 10/12 06:00~10/12 18:00</th>
+		<th scope="row">今日白天 10/13 06:00~10/13 18:00</th>
 		<td>26 ~ 33</td>
 		<td>
-		<img src="../../symbol/weather/gif/day/02.gif" alt="多雲" title="多雲"></td>
+		<img src="../../symbol/weather/gif/day/06.gif" alt="陰時多雲" title="陰時多雲"></td>
 		<td>舒適至悶熱</td>
 		<td>20 %</td>
 		</tr><tr>
-		<th scope="row">明日晚上 10/12 18:00~10/13 06:00</th>
-		<td>26 ~ 29</td>
+		<th scope="row">今晚至明晨 10/13 18:00~10/14 06:00</th>
+		<td>25 ~ 29</td>
 		<td>
-		<img src="../../symbol/weather/gif/night/02.gif" alt="多雲" title="多雲"></td>
+		<img src="../../symbol/weather/gif/night/03.gif" alt="陰天" title="陰天"></td>
+		<td>舒適</td>
+		<td>20 %</td>
+		</tr><tr>
+		<th scope="row">明日白天 10/14 06:00~10/14 18:00</th>
+		<td>25 ~ 32</td>
+		<td>
+		<img src="../../symbol/weather/gif/day/03.gif" alt="陰天" title="陰天"></td>
 		<td>舒適至悶熱</td>
 		<td>20 %</td>
 		</tr></tbody>
@@ -344,7 +344,7 @@ table.FcstBoxTable01 td a:hover{ color:#2f83cb; text-decoration:underline;}
 	<table class="FcstBoxTable01" summary="編排用">
 	<thead>
 	<tr>
-	<th width="20%">10/11</th>
+	<th width="20%">10/13</th>
 	<th width="20%">日出時刻<br />hh:mm</th>
 	
 	<th width="20%">日沒時刻<br />hh:mm</th>
@@ -355,10 +355,10 @@ table.FcstBoxTable01 td a:hover{ color:#2f83cb; text-decoration:underline;}
 	</thead>
 	<tr>
 	<th scope="row">雲林</th>
-	<td class="num">05:53</td>
-	<td class="num">17:35</td>
-	<td class="num">22:28</td>
-	<td class="num">11:12</td>
+	<td class="num">05:54</td>
+	<td class="num">17:34</td>
+	<td class="num">—</td>
+	<td class="num">13:06</td>
 	</tr>
 	</table>  </div>
 <!--ContainerInOne -->
@@ -472,9 +472,9 @@ function f2c()
     <div class="BoxHead">相關服務</div>
     <div class="BoxContent qoo">
       <ul class="RelatedService">
+        <li><a target="_blank" href="/V7/forecast/taiwan/Data/W02.pdf?">今日白天PDF</a></li>
         <li><a target="_blank" href="/V7/forecast/taiwan/Data/W42.pdf?">今晚明晨PDF</a></li>
         <li><a target="_blank" href="/V7/forecast/taiwan/Data/W03.pdf?">明日白天PDF</a></li>
-        <li><a target="_blank" href="/V7/forecast/taiwan/Data/W43.pdf?">明日晚上PDF</a></li>
         <li>舒適度PDF(<a target="_blank" href="/V7/forecast/taiwan/Data/W20.pdf?">甲</a>、<a target="_blank" href="/V7/forecast/taiwan/Data/W32.pdf?">乙</a>)</li>
         <li><a target="_blank" href="/V7/forecast/taiwan/Data/W11.pdf?">１週天氣PDF</a></li>
         <li><a target="_blank" href="/V7/forecast/taiwan/Data/W53.pdf?">１週縣市天氣預報PDF</a></li>
@@ -487,7 +487,6 @@ function f2c()
       </ul>
    </div>
   </div>
-
   <div class="BoxEntry">
     <div class="BoxHead">°C/°F 轉換</div>
 	<div class="Tips">

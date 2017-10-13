@@ -10,7 +10,7 @@ import json
 langs = []
 links = 'http://www.cwb.gov.tw/V7/forecast/taiwan/Yunlin_County.htm'
 
-weather_html = open('weather_html.txt',encoding = "utf-8",mode = "w")
+weather_html = open('./crawler/weather_html.txt',encoding = "utf-8",mode = "w")
 
 res = requests.get(links)
 res.encoding = 'utf-8'
@@ -29,7 +29,7 @@ def weather_days_information():
     global json_1
     result = '['
 
-    shop_list = open('weather_days_information.json',encoding = "utf-8",mode = 'w')
+    shop_list = open('./crawler/weather_days_information.json',encoding = "utf-8",mode = 'w')
 
     print(len(news_table))
     for i in range(0,len(news_table)):
@@ -72,7 +72,7 @@ def funcname():
     global result
     global json
     result = '['
-    shop_list = open('weather_week.json',encoding = "utf-8",mode = 'w')
+    shop_list = open('./crawler/weather_week.json',encoding = "utf-8",mode = 'w')
 
     soup = BeautifulSoup(res.text.encode("utf-8"),'html.parser')
     week_weather = soup.find('table',{'class':'FcstBoxTable01'})

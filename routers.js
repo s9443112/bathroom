@@ -12,6 +12,7 @@ exports.setRequestUrl = function (app) {
         app.get('/media',controller.media);
         app.get('/icon',controller.icon);
         app.get('/test',controller.test);
+        app.get('/crawler_weather',controller.crawler_weather)
 }
         
 

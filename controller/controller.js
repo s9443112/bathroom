@@ -189,3 +189,22 @@ exports.crawler = function (req, res) {
 	});
 
 }
+
+exports.crawler_weather = function (req, res) {
+	var callback = function () {
+		res.redirect('/index_test');
+	}
+
+	var exec = require('exec');
+
+	exec('python3 ./crawler/weather.py', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
+	
+
+}
