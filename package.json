@@ -17,6 +17,7 @@
     "events": "^1.1.1",
     "exec": "^0.2.1",
     "express": "^4.15.4",
+    "express-session": "^1.15.6",
     "jsonfile": "^4.0.0",
     "mqtt": "^2.13.0",
     "mysql": "^2.14.1",

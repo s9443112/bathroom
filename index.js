@@ -9,8 +9,9 @@ var options = {
 var app = require('express')();
 var express = require('express');
 
-var https = require('https').Server(app);
+var https = require('https').Server(options,app);
 
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var cookie = require('cookie-parser');
 //可以使用其他位置的物件
@@ -24,7 +25,16 @@ app.set('port', process.env.PORT || 8080);// 設定環境port
 app.use(bodyParser.json());  //解析post內容
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookie());
+
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'recommand 128 bytes random string', //建議使用128個字符的隨機字符串
+    cookie: { maxAge: 60 * 1000 }
+}));
 //設置 session 可選參數
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 require('./config/passport.js')(passport);
 routers.setRequestUrl(app,passport); //設定路徑
