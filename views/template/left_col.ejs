@@ -62,7 +62,7 @@
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-          
+          <% if(!user.displayName){ %>
           <li class="">
             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 <img src="images/img.jpg" alt=""><%= user.displayName %>
