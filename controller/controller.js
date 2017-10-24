@@ -98,6 +98,7 @@ exports.index_test = function (req, res) {
 	var news = [];
 	var weather = '';
 	var mysql = require('mysql');
+	 
 	var connection = mysql.createConnection({
 		host: '139.162.72.78',
 		user: 's9443112',
@@ -113,6 +114,7 @@ exports.index_test = function (req, res) {
 			date: now.setTimezone("Asia/Taipei"),
 			weather: weather,
 			weather_day: weather_day,
+			user:req.user,
 		});
 	}
 
