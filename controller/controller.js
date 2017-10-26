@@ -2,7 +2,7 @@ var fs = require('fs');
 var readline = require('readline');
 var path = require('path');
 var time = require('time');
-
+var database = require('../config/auth.js');
 
 
 
