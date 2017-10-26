@@ -19,7 +19,7 @@ module.exports = {
         'clientSecret': 'dKaTlE8CH1HQeA-DnDfeJdSY',
         'callbackURL': 'https://luhao.ddns.net:8080/auth/google/callback'
     },
-
+    
     'MySQL': {
         'host': '139.162.72.78',
         'user': 'luhao',

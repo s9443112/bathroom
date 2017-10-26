@@ -100,10 +100,10 @@ exports.index_test = function (req, res) {
 	var mysql = require('mysql');
 	 
 	var connection = mysql.createConnection({
-		host: '139.162.72.78',
-		user: 's9443112',
-		password: 'game54176868',
-		database: 'BANG',
+		host: database.MySQL.host,
+		user: database.MySQL.user,
+		password: database.MySQL.password,
+		database: database.MySQL.database
 	});
 
 	var callback = function (msg) {
