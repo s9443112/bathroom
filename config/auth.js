@@ -21,9 +21,9 @@ module.exports = {
     },
     'MySQL': {
         'host': '139.162.72.78',
-        'user': 'luhao',
-        'password': 'a23387696',
-        'database': 'tta'
+        'user': 's9443112',
+        'password': 'game54176868',
+        'database': 'BANG'
     },
     'Firebase':{
         'serverKey':'AAAAUAgD09g:APA91bGEFaTRZZSFrIuAtU05iN7YcGr6NAlEuR7aoyUMDVZGwmLHySVy130fOmkn8g1EVcZ44KxhFJRKo2DnbZNzcXZsz2RRgkzXrPU7uto4CkJpLPDQau3wHzFWyYfIcg_sCeOs-E0y',
