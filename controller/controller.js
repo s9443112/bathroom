@@ -103,7 +103,7 @@ exports.index_test = function (req, res) {
 		host: database.MySQL.host,
 		user: database.MySQL.user,
 		password: database.MySQL.password,
-		database: database.MySQL.database
+		database: database.MySQL.database,
 	});
 
 	var callback = function (msg) {
