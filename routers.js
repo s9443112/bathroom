@@ -38,9 +38,10 @@ exports.setRequestUrl = function (app,passport) {
         
             app.get('/auth/google/callback',
                 passport.authenticate('google', {
-                    successRedirect: '/auth/google/success',
-                    failureRedirect: '/auth/google/failure'
-        
+                    //successRedirect: '/auth/google/success',
+                    //failureRedirect: '/auth/google/failure'
+                    successRedirect = '/index_test',
+                    failureRedirect:'/auth/google/failure'
                 })
             );
         
@@ -48,8 +49,10 @@ exports.setRequestUrl = function (app,passport) {
         
             app.get('/auth/facebook/callback',
                 passport.authenticate('facebook', {
-                    successRedirect: '/auth/facebook/success',
-                    failureRedirect: '/auth/facebook/failure'
+                    //successRedirect: '/auth/facebook/success',
+                    //failureRedirect: '/auth/facebook/failure'
+                    successRedirect = '/index_test',
+                    failureRedirect:'/auth/facebook/failure'
         
                 })
             );
