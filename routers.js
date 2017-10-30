@@ -40,7 +40,7 @@ exports.setRequestUrl = function (app,passport) {
                 passport.authenticate('google', {
                     //successRedirect: '/auth/google/success',
                     //failureRedirect: '/auth/google/failure'
-                    successRedirect = '/index_test',
+                    successRedirect : '/index_test',
                     failureRedirect:'/auth/google/failure'
                 })
             );
@@ -51,7 +51,7 @@ exports.setRequestUrl = function (app,passport) {
                 passport.authenticate('facebook', {
                     //successRedirect: '/auth/facebook/success',
                     //failureRedirect: '/auth/facebook/failure'
-                    successRedirect = '/index_test',
+                    successRedirect : '/index_test',
                     failureRedirect:'/auth/facebook/failure'
         
                 })
