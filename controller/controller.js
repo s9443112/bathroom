@@ -143,13 +143,19 @@ exports.index_test = function (req, res) {
 }
 
 exports.tables = function (req, res) {
-	res.render('tables');
+	res.render('tables',{
+		user:req.user,
+	});
 }
 exports.media = function (req, res) {
-	res.render('media');
+	res.render('media',{
+		user:req.user,
+	});
 }
 exports.icon = function (req, res) {
-	res.render('icon');
+	res.render('icon',{
+		user:req.user,
+	});
 }
 
 
