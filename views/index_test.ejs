@@ -525,15 +525,20 @@
                               var skycons = new Skycons({ "color": "blue" });
                                   <% for(i = 0; i < 6; i++) {
                                           day_w = "day" + i;
-                                          if (weather[i].img == "多雲" || weather[i].img == "陰時多雲" || weather[i].img == "多雲時陰" || weather[i].img == "陰天") {
+                                          var now_weather = weather[i].img;
+                                          if(now_weather.indexOf("晴")!=-1){
+                                            weather[i].img = "Skycons.CLEAR_DAY"
+                                          }
+                                          if (weather[i].img == "多雲" || weather[i].img == "陰時多雲" || weather[i].img == "多雲時陰" || weather[i].img == "陰天" || now_weather.indexOf("雲")!=-1) {
                                             weather[i].img = "Skycons.CLOUDY"
                                           }
-                                          if (weather[i].img == "晴時多雲" || weather[i].img == "多雲時晴") {
+                                          if (weather[i].img == "晴時多雲" || weather[i].img == "多雲時晴" ) {
                                             weather[i].img = "Skycons.PARTLY_CLOUDY_DAY"
                                           }
-                                          if (weather[i].img == "晴午後短暫雷陣雨" || weather[i].img == "多雲時陰短暫雨") {
+                                          if (weather[i].img == "晴午後短暫雷陣雨" || weather[i].img == "多雲時陰短暫雨" || now_weather.indexOf("雨")!=-1) {
                                             weather[i].img = "Skycons.RAIN"
                                           }
+                                          
                                   %>
                                     skycons.add(document.getElementById('<%= day_w %>'), <%= weather[i].img %>);
                                   <% } %>
