@@ -526,10 +526,8 @@
                                   <% for(i = 0; i < 6; i++) {
                                           day_w = "day" + i;
                                           var now_weather = weather[i].img;
-                                          if(now_weather.indexOf("晴")!=-1){
-                                            weather[i].img = "Skycons.CLEAR_DAY"
-                                          }
-                                          if (weather[i].img == "多雲" || weather[i].img == "陰時多雲" || weather[i].img == "多雲時陰" || weather[i].img == "陰天" || now_weather.indexOf("雲")!=-1) {
+                                          
+                                          if (weather[i].img == "多雲" || weather[i].img == "陰時多雲" || weather[i].img == "多雲時陰" || weather[i].img == "陰天" ) {
                                             weather[i].img = "Skycons.CLOUDY"
                                           }
                                           if (weather[i].img == "晴時多雲" || weather[i].img == "多雲時晴" ) {
