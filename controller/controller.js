@@ -161,21 +161,39 @@ exports.icon = function (req, res) {
 
 
 exports.start_news_mqtt_recive = function(req,res){
-	var forever = require('forever');
-	var option = {
-		debug:false
+
+
+	var callback = function () {
+		res.redirect('/index_test');
 	}
-	forever.start('./anything/mqtt.js',option);
-	res.redirect('/index_test');
+
+	var exec = require('exec');
+
+	exec('forever start ./anything/mqtt.js', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
 }
 
 exports.start_weather_mqtt_recive = function(req,res){
-	var forever = require('forever');
-	var option = {
-		debug:false
+	var callback = function () {
+		res.redirect('/index_test');
 	}
-	forever.start('./anything/mqtt_weather.js',option);
-	res.redirect('/index_test');
+
+	var exec = require('exec');
+
+	exec('forever start ./anything/mqtt_weather.js', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
 }
 
 
