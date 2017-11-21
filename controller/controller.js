@@ -3,7 +3,8 @@ var readline = require('readline');
 var path = require('path');
 var time = require('time');
 var database = require('../config/auth.js');
-
+var iconv = require('iconv-lite');
+var chineseConv = require('chinese-conv');
 
 
 exports.index = function (req, res) {
@@ -136,7 +137,7 @@ exports.index_test = function (req, res) {
 	var sql = "SELECT * FROM message";
 	connection.query(sql, function (error, result) {
 		if (error) throw error;
-		console.log(result);
+		//console.log(result);
 		callback(result);
 	});
 
@@ -159,16 +160,127 @@ exports.icon = function (req, res) {
 }
 
 
+exports.start_news_mqtt_recive = function(req,res){
+	var forever = require('forever');
+	var option = {
+		debug:false
+	}
+	forever.start('./anything/mqtt.js',option);
+	res.redirect('/index_test');
+}
+
+exports.stop_news_mqtt_recive = function(req,res){
+	var forever = require('forever');
+	var option = {
+		debug:false
+	}
+	forever.stopAll(1);
+	res.redirect('/index_test');
+}
+
+
+
+
 exports.mqtt_recive = function (req, res) {
 
 	//console.log(req.query.msg);
 	msg = req.query.msg
+	console.log(msg)
 	var mqtt = require('mqtt');
 	var client = mqtt.connect('mqtt://140.125.33.105')
 
+	msg = msg.replace('?', '？')
+    msg = msg.replace('!', '！')
+    msg = msg.replace(/　/g,'　')
+    msg = msg.replace(/  /g, '　')
+    msg = msg.replace(/ /g, '　')
+    
+    msg = msg.replace(/0/g, '０')
+    msg = msg.replace(/1/g, '１')
+    msg = msg.replace(/2/g, '２')
+    msg = msg.replace(/3/g, '３')
+    msg = msg.replace(/4/g, '４')
+    msg = msg.replace(/5/g, '５')
+    msg = msg.replace(/6/g, '６')
+    msg = msg.replace(/7/g, '７')
+    msg = msg.replace(/8/g, '８')
+    msg = msg.replace(/9/g,'９')
+
+    
+    msg = msg.replace(/A/g, 'Ａ')
+    msg = msg.replace(/B/g, 'Ｂ')
+    msg = msg.replace(/C/g, 'Ｃ')
+    msg = msg.replace(/D/g, 'Ｄ')
+    msg = msg.replace(/E/g, 'Ｅ')
+    msg = msg.replace(/F/g, 'Ｆ')
+    msg = msg.replace(/G/g, 'Ｇ')
+    msg = msg.replace(/H/g, 'Ｈ')
+    msg = msg.replace(/I/g, 'Ｉ')
+    msg = msg.replace(/J/g, 'Ｊ')
+    msg = msg.replace(/K/g, 'Ｋ')
+    msg = msg.replace(/L/g, 'Ｌ')
+    msg = msg.replace(/M/g, 'Ｍ')
+    msg = msg.replace(/N/g, 'Ｎ')
+    msg = msg.replace(/O/g, 'Ｏ')
+    msg = msg.replace(/P/g, 'Ｐ')
+    msg = msg.replace(/Q/g, 'Ｑ')
+    msg = msg.replace(/R/g, 'Ｒ')
+    msg = msg.replace(/S/g, 'Ｓ')
+    msg = msg.replace(/T/g, 'Ｔ')
+    msg = msg.replace(/U/g, 'Ｕ')
+    msg = msg.replace(/V/g, 'Ｖ')
+    msg = msg.replace(/W/g, 'Ｗ')
+    msg = msg.replace(/X/g, 'Ｘ')
+    msg = msg.replace(/Y/g, 'Ｙ')
+    msg = msg.replace(/Z/g, 'Ｚ')
+
+
+    msg = msg.replace(/a/g, 'ａ')
+    msg = msg.replace(/b/g, 'ｂ')
+    msg = msg.replace(/c/g, 'ｃ')
+    msg = msg.replace(/d/g, 'ｄ')
+    msg = msg.replace(/e/g, 'ｅ')
+    msg = msg.replace(/f/g, 'ｆ')
+    msg = msg.replace(/g/g, 'ｇ')
+    msg = msg.replace(/h/g, 'ｈ')
+    msg = msg.replace(/i/g, 'ｉ')
+    msg = msg.replace(/j/g, 'ｊ')
+    msg = msg.replace(/k/g, 'ｋ')
+    msg = msg.replace(/l/g, 'ｌ')
+    msg = msg.replace(/m/g, 'ｍ')
+    msg = msg.replace(/n/g, 'ｎ')
+    msg = msg.replace(/o/g, 'ｏ')
+    msg = msg.replace(/p/g, 'ｐ')
+    msg = msg.replace(/q/g, 'ｑ')
+    msg = msg.replace(/r/g, 'ｒ')
+    msg = msg.replace(/s/g, 'ｓ')
+    msg = msg.replace(/t/g, 'ｔ')
+    msg = msg.replace(/u/g, 'ｕ')
+    msg = msg.replace(/v/g, 'ｖ')
+    msg = msg.replace(/w/g, 'ｗ')
+    msg = msg.replace(/x/g, 'ｘ')
+    msg = msg.replace(/y/g, 'ｙ')
+    msg = msg.replace(/z/g, 'ｚ')
+
+
+    msg = msg.replace('「', '（')
+    msg = msg.replace('」', '）')
+
+
+	var str = chineseConv.sify(msg);
+	console.log("========")
+	console.log(str)
+	var str_ch = msg;
+
+	var buf = iconv.encode(str, 'GBK');//return GBK encoded bytes from unicode string
+    var buf_ch = iconv.encode(str_ch, 'big5');
+	console.log(buf)
+	console.log(buf_ch)
+
 	client.on('connect', function () {
-		client.subscribe('C8764');
-		client.publish('C8764', msg);
+		client.subscribe('c876334');
+		client.publish('c876334', buf.toString('hex'));
+		client.publish('c876335', buf_ch.toString('hex'));
 	})
 	client.on('message', function (topic, message) {
 		console.log(message.toString());

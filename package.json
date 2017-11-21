@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.0",
     "cheerio": "^1.0.0-rc.2",
+    "chinese-conv": "^1.0.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "event": "^1.0.0",
@@ -18,6 +19,8 @@
     "exec": "^0.2.1",
     "express": "^4.15.4",
     "express-session": "^1.15.6",
+    "forever": "^0.15.3",
+    "iconv-lite": "^0.4.19",
     "jsonfile": "^4.0.0",
     "mqtt": "^2.13.0",
     "mysql": "^2.14.1",
@@ -26,6 +29,7 @@
     "passport-google-oauth2": "^0.1.6",
     "python-shell": "^0.4.0",
     "request": "^2.81.0",
+    "socket.io": "^2.0.4",
     "time": "^0.12.0"
   }
 }

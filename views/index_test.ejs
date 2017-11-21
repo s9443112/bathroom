@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('template/head',{title:'首頁'}) %>
+
+
+
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -133,7 +136,7 @@
             </div>
             <br />
 
-            
+
 
 
             <div class="row">
@@ -297,6 +300,86 @@
                       </div>
                       <div class="clearfix"></div>
                     </div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel tile fixed_height_320">
+                  <div class="x_title">
+                    <h2>功能發送</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <a class="collapse-link">
+                          <i class="fa fa-chevron-up"></i>
+                        </a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                          <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li>
+                            <a href="#">Settings 1</a>
+                          </li>
+                          <li>
+                            <a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="close-link">
+                          <i class="fa fa-close"></i>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="widget_summary">
+                      <div class="w_left w_25">
+                        <span>新聞發送</span>
+                      </div>                    
+                      <div class="w_right w_20">
+                        <span><a href="/start_news_mqtt_recive">開始發送</a></span>
+                        <span><a href="/stop_news_mqtt_recive">停止發送</a></span>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+
+                    <div class="widget_summary">
+                      <div class="w_left w_25">
+                        <span>訊息發送</span>
+                      </div>                    
+                      <div class="w_right w_20">
+                        <span>123k</span>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="widget_summary">
+                      <div class="w_left w_25">
+                        <span>天氣發送</span>
+                      </div>                    
+                      <div class="w_right w_20">
+                        <span>123k</span>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="widget_summary">
+                      <div class="w_left w_25">
+                        <span>綜合發送</span>
+                      </div>                    
+                      <div class="w_right w_20">
+                        <span>123k</span>
+                      </div>
+                      <div class="w_right w_20">
+                        <span>123k</span>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    
 
 
                   </div>
@@ -523,22 +606,22 @@
 
                             <script>
                               var skycons = new Skycons({ "color": "blue" });
-                                  <% for(i = 0; i < 6; i++) {
-                                          day_w = "day" + i;
-                                          var now_weather = weather[i].img;
-                                          
-                                          if (weather[i].img == "多雲" || weather[i].img == "陰時多雲" || weather[i].img == "多雲時陰" || weather[i].img == "陰天" ) {
-                                            weather[i].img = "Skycons.CLOUDY"
-                                          }
-                                          if (weather[i].img == "晴時多雲" || weather[i].img == "多雲時晴" ) {
-                                            weather[i].img = "Skycons.PARTLY_CLOUDY_DAY"
-                                          }
-                                          if (weather[i].img == "晴午後短暫雷陣雨" || weather[i].img == "多雲時陰短暫雨" || now_weather.indexOf("雨")!=-1) {
-                                            weather[i].img = "Skycons.RAIN"
-                                          }
+                                  <% for (i = 0; i < 6; i++) {
+                                day_w = "day" + i;
+                                var now_weather = weather[i].img;
+
+                                if (weather[i].img == "多雲" || weather[i].img == "陰時多雲" || weather[i].img == "多雲時陰" || weather[i].img == "陰天") {
+                                  weather[i].img = "Skycons.CLOUDY"
+                                }
+                                if (weather[i].img == "晴時多雲" || weather[i].img == "多雲時晴") {
+                                  weather[i].img = "Skycons.PARTLY_CLOUDY_DAY"
+                                }
+                                if (weather[i].img == "晴午後短暫雷陣雨" || weather[i].img == "多雲時陰短暫雨" || now_weather.indexOf("雨") != -1) {
+                                  weather[i].img = "Skycons.RAIN"
+                                }
                                           
                                   %>
-                                    skycons.add(document.getElementById('<%= day_w %>'), <%= weather[i].img %>);
+                                  skycons.add(document.getElementById('<%= day_w %>'), <%= weather[i].img %>);
                                   <% } %>
                             </script>
 

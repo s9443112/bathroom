@@ -10,6 +10,7 @@ var app = require('express')();
 var express = require('express');
 
 var https = require('https').Server(options,app);
+var io = require('socket.io')(https);
 
 var session = require('express-session');
 var bodyParser = require('body-parser');
@@ -38,6 +39,8 @@ app.use(passport.session()); // persistent login sessions
 
 require('./config/passport.js')(passport);
 routers.setRequestUrl(app,passport); //設定路徑
+
+require('./socket/socket_mqtt.js')(io);
 
 https.listen(app.get('port'), '0.0.0.0', function () {
     
