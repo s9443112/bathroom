@@ -17,12 +17,12 @@ var i = 0;
 
 
 
-var data = fs.readFileSync(path.join(__dirname + '/../crawler/weather_days_information.json'), 'utf8');
+var data = fs.readFileSync(path.join(__dirname + '/../crawler/weather_week.json'), 'utf8');
 var weather = JSON.parse(data)
 //console.log(weather[i].title)
 for (i = 0; i < weather.length; i++) {
 
-    news.push(JSON.stringify(weather[i].temperature))
+    news.push(JSON.stringify(weather[i].data+"　"+weather[i].img+"："+weather[i].temperature))
 
 }
 //news.push(news[0].title+news[0].temperature)
@@ -43,7 +43,7 @@ setInterval(function () {
         console.log("觸發")
         i = 0;
     }
-    
+    news[i] = news[i].replace("/", '／')
     news[i] = news[i].replace(/"/g, '')
     news[i] = news[i].replace(/:/g, '：')
     news[i] = news[i].replace(/~/g, '～')
@@ -152,6 +152,7 @@ client.on('connect', function () {
     i = 0;
     //console.log(news[i]);
 
+    news[i] = news[i].replace("/", '／')
     news[i] = news[i].replace(/"/g, '')
     news[i] = news[i].replace(/:/g, '：')
     news[i] = news[i].replace(/~/g, '～')

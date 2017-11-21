@@ -16,7 +16,8 @@ exports.setRequestUrl = function (app,passport) {
 
         app.get('/start_news_mqtt_recive',controller.start_news_mqtt_recive);
         app.get('/start_weather_mqtt_recive',controller.start_weather_mqtt_recive);
-
+        app.get('/start_abc_mqtt_recive',controller.start_abc_mqtt_recive);
+        
 
         app.get('/auth/google/success', function (req, res) {
                 console.log(req.user);
