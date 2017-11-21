@@ -169,14 +169,15 @@ exports.start_news_mqtt_recive = function(req,res){
 	res.redirect('/index_test');
 }
 
-exports.stop_news_mqtt_recive = function(req,res){
+exports.start_weather_mqtt_recive = function(req,res){
 	var forever = require('forever');
 	var option = {
 		debug:false
 	}
-	forever.stopAll(1);
+	forever.start('./anything/mqtt_weather.js',option);
 	res.redirect('/index_test');
 }
+
 
 
 
