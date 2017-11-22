@@ -61,28 +61,25 @@
                           <th>#</th>
                           <th>廁所編號</th>
                           <th>使用次數</th>
+                          <th>是否開機中</th>
                           
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          
-                        </tr>
+                        <% for(i=0;i<msg.length;i++){ %>
+                          <tr>
+
+                            <th scope="row"><%= i+1 %></th>
+                            <td><%= msg[i].name %></td>
+                            <td><%= msg[i].count %></td>
+                            <% if(msg[i].free_bang==1){ %>
+                              <td>開機中</td>
+                            <% }else{ %>
+                              <td>未開機</td>
+                            <% } %>
+                          </tr>
+                        <% } %>
+                       
                       </tbody>
                     </table>
 
@@ -126,20 +123,20 @@
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                         <tr>
                           <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                       </tbody>
@@ -185,20 +182,20 @@
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                         <tr>
                           <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                       </tbody>
@@ -244,20 +241,20 @@
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                         <tr>
                           <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
+                          <td>---未安裝---</td>
+                          <td>---未安裝---</td>
                           
                         </tr>
                       </tbody>
@@ -303,10 +300,10 @@
                               <input type="checkbox" id="check-all" class="flat">
                             </th>
                             <th class="column-title">廁所編號</th>
-                            <th class="column-title">最後使用時間</th>
+                            
                             <th class="column-title">使用次數</th>
                             <th class="column-title">男廁 </th>
-                            <th class="column-title">女廁</th>
+                          
                             
                             
                             <th class="bulk-actions" colspan="7">
@@ -321,51 +318,10 @@
                               <input type="checkbox" class="flat" name="table_records">
                             </td>
                             <td class=" ">121000040</td>
-                            <td class=" ">May 23, 2014 11:47:56 PM </td>
+                           
                             <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
                             <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
                             
-                            
-                            </td>
-                          </tr>
-                          <tr class="odd pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000039</td>
-                            <td class=" ">May 23, 2014 11:30:12 PM</td>
-                            <td class=" ">121000208 <i class="success fa fa-long-arrow-up"></i>
-                            </td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
-                          <tr class="even pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000038</td>
-                            <td class=" ">May 24, 2014 10:55:33 PM</td>
-                            <td class=" ">121000203 <i class="success fa fa-long-arrow-up"></i>
-                            </td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
-                          <tr class="odd pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000037</td>
-                            <td class=" ">May 24, 2014 10:52:44 PM</td>
-                            <td class=" ">121000204</td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
                             
                             
                             </td>
@@ -375,81 +331,15 @@
                               <input type="checkbox" class="flat" name="table_records">
                             </td>
                             <td class=" ">121000040</td>
-                            <td class=" ">May 24, 2014 11:47:56 PM </td>
-                            <td class=" ">121000210</td>
+                           
+                            <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
                             <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
+                           
                             
                             
                             </td>
                           </tr>
-                          <tr class="odd pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000039</td>
-                            <td class=" ">May 26, 2014 11:30:12 PM</td>
-                            <td class=" ">121000208 <i class="error fa fa-long-arrow-down"></i>
-                            </td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
-                          <tr class="even pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000038</td>
-                            <td class=" ">May 26, 2014 10:55:33 PM</td>
-                            <td class=" ">121000203</td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
-                          <tr class="odd pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000037</td>
-                            <td class=" ">May 26, 2014 10:52:44 PM</td>
-                            <td class=" ">121000204</td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
-
-                          <tr class="even pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000040</td>
-                            <td class=" ">May 27, 2014 11:47:56 PM </td>
-                            <td class=" ">121000210</td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
-                          <tr class="odd pointer">
-                            <td class="a-center ">
-                              <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000039</td>
-                            <td class=" ">May 28, 2014 11:30:12 PM</td>
-                            <td class=" ">121000208</td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            
-                            
-                            </td>
-                          </tr>
+                          
                         </tbody>
                       </table>
                     </div>

@@ -8,7 +8,12 @@ var chineseConv = require('chinese-conv');
 
 var config = {
     port: 1883,
-    clientId: 'nodejs'
+    clientId: 'nodejs_mqtt',
+    will:{
+        topic:'c876330',
+        payload:'I am die',
+        qos:0
+    }
 };
 var news = [];
 
@@ -197,7 +202,7 @@ setInterval(function () {
     client.publish('c876335', buf_ch.toString('hex'));
 
     
-}, 10000)
+}, 5000)
 
 
 

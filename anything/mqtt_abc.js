@@ -8,7 +8,7 @@ var chineseConv = require('chinese-conv');
 
 var config = {
     port: 1883,
-    clientId: 'nodejs_mqtt_weather_week',
+    clientId: 'nodejs_mqtt_abc',
     will:{
         topic:'c876330',
         payload:'I am die',
@@ -18,46 +18,105 @@ var config = {
 var news = [];
 
 var i = 0;
-
-
-
-
-var data = fs.readFileSync(path.join(__dirname + '/../crawler/weather_week.json'), 'utf8');
-var weather = JSON.parse(data)
-//console.log(weather[i].title)
-for (i = 0; i < weather.length; i++) {
-
-    news.push(JSON.stringify(weather[i].data+"　"+weather[i].img+"："+weather[i].temperature))
-
-}
-//news.push(news[0].title+news[0].temperature)
-
+var data = fs.readFileSync(path.join(__dirname + '/../crawler/abc.txt'), 'utf8');
+data.split(/\r?\n/).forEach(function (line) {
+    news.push(line);
+});
 
 var client = mqtt.connect('mqtt://140.125.33.105', config);
 
+function fix(){
+    news[i] = news[i].replace('0', '０')
+    news[i] = news[i].replace('1', '１')
+    news[i] = news[i].replace('2', '２')
+    news[i] = news[i].replace('3', '３')
+    news[i] = news[i].replace('4', '４')
+    news[i] = news[i].replace('5', '５')
+    news[i] = news[i].replace('6', '６')
+    news[i] = news[i].replace('7', '７')
+    news[i] = news[i].replace('8', '８')
+    news[i] = news[i].replace('9', '９')
+
+    
+    news[i] = news[i].replace('A', 'Ａ')
+    news[i] = news[i].replace('B', 'Ｂ')
+    news[i] = news[i].replace('C', 'Ｃ')
+    news[i] = news[i].replace('D', 'Ｄ')
+    news[i] = news[i].replace('E', 'Ｅ')
+    news[i] = news[i].replace('F', 'Ｆ')
+    news[i] = news[i].replace('G', 'Ｇ')
+    news[i] = news[i].replace('H', 'Ｈ')
+    news[i] = news[i].replace('I', 'Ｉ')
+    news[i] = news[i].replace('J', 'Ｊ')
+    news[i] = news[i].replace('K', 'Ｋ')
+    news[i] = news[i].replace('L', 'Ｌ')
+    news[i] = news[i].replace('M', 'Ｍ')
+    news[i] = news[i].replace('N', 'Ｎ')
+    news[i] = news[i].replace('O', 'Ｏ')
+    news[i] = news[i].replace('P', 'Ｐ')
+    news[i] = news[i].replace('Q', 'Ｑ')
+    news[i] = news[i].replace('R', 'Ｒ')
+    news[i] = news[i].replace('S', 'Ｓ')
+    news[i] = news[i].replace('T', 'Ｔ')
+    news[i] = news[i].replace('U', 'Ｕ')
+    news[i] = news[i].replace('V', 'Ｖ')
+    news[i] = news[i].replace('W', 'Ｗ')
+    news[i] = news[i].replace('X', 'Ｘ')
+    news[i] = news[i].replace('Y', 'Ｙ')
+    news[i] = news[i].replace('Z', 'Ｚ')
 
 
+    news[i] = news[i].replace('a', 'ａ')
+    news[i] = news[i].replace('b', 'ｂ')
+    news[i] = news[i].replace('c', 'ｃ')
+    news[i] = news[i].replace('d', 'ｄ')
+    news[i] = news[i].replace('e', 'ｅ')
+    news[i] = news[i].replace('f', 'ｆ')
+    news[i] = news[i].replace('g', 'ｇ')
+    news[i] = news[i].replace('h', 'ｈ')
+    news[i] = news[i].replace('i', 'ｉ')
+    news[i] = news[i].replace('j', 'ｊ')
+    news[i] = news[i].replace('k', 'ｋ')
+    news[i] = news[i].replace('l', 'ｌ')
+    news[i] = news[i].replace('m', 'ｍ')
+    news[i] = news[i].replace('n', 'ｎ')
+    news[i] = news[i].replace('o', 'ｏ')
+    news[i] = news[i].replace('p', 'ｐ')
+    news[i] = news[i].replace('q', 'ｑ')
+    news[i] = news[i].replace('r', 'ｒ')
+    news[i] = news[i].replace('s', 'ｓ')
+    news[i] = news[i].replace('t', 'ｔ')
+    news[i] = news[i].replace('u', 'ｕ')
+    news[i] = news[i].replace('v', 'ｖ')
+    news[i] = news[i].replace('w', 'ｗ')
+    news[i] = news[i].replace('x', 'ｘ')
+    news[i] = news[i].replace('y', 'ｙ')
+    news[i] = news[i].replace('z', 'ｚ')
 
+
+    news[i] = news[i].replace('「', '（')
+    news[i] = news[i].replace('」', '）')
+}
 
 
 setInterval(function () {
     i = i + 1;
     console.log(news.length);
     console.log(i);
-    if (i > news.length-1){
+    if (i > news.length-2){
         console.log("觸發")
         i = 0;
     }
-    news[i] = news[i].replace("/", '／')
-    news[i] = news[i].replace(/"/g, '')
+    
+    news[i] = news[i].replace(/"/g, '＂')
     news[i] = news[i].replace(/:/g, '：')
     news[i] = news[i].replace(/~/g, '～')
 
     news[i] = news[i].replace('?', '？')
     news[i] = news[i].replace('!', '！')
-    news[i] = news[i].replace(/　/g, '')
-    news[i] = news[i].replace(/  /g, '')
-    news[i] = news[i].replace(/ /g, '')
+    news[i] = news[i].replace(/　/g, '　')
+    news[i] = news[i].replace(/  /g, '　')
+    news[i] = news[i].replace(/ /g, '　')
 
     news[i] = news[i].replace(/0/g, '０')
     news[i] = news[i].replace(/1/g, '１')
@@ -129,7 +188,6 @@ setInterval(function () {
 
     news[i] = news[i].replace('「', '（')
     news[i] = news[i].replace('」', '）')
-
     var str = chineseConv.sify(news[i]);
     var str_ch = news[i];
 
@@ -142,9 +200,8 @@ setInterval(function () {
     
     client.publish('c876334', buf.toString('hex'));
     client.publish('c876335', buf_ch.toString('hex'));
-    
-    
 
+    
 }, 5000)
 
 
@@ -152,21 +209,17 @@ setInterval(function () {
 
 
 client.on('connect', function () {
-    //console.log("連上去了");
-    client.subscribe('c876334');
-    i = 0;
-    //console.log(news[i]);
-
-    news[i] = news[i].replace("/", '／')
-    news[i] = news[i].replace(/"/g, '')
+    console.log("連上去了");
+    client.subscribe('c876335');
+    news[i] = news[i].replace(/"/g, '＂')
     news[i] = news[i].replace(/:/g, '：')
     news[i] = news[i].replace(/~/g, '～')
 
     news[i] = news[i].replace('?', '？')
     news[i] = news[i].replace('!', '！')
-    news[i] = news[i].replace(/　/g, '')
-    news[i] = news[i].replace(/  /g, '')
-    news[i] = news[i].replace(/ /g, '')
+    news[i] = news[i].replace(/　/g, '　')
+    news[i] = news[i].replace(/  /g, '　')
+    news[i] = news[i].replace(/ /g, '　')
 
     news[i] = news[i].replace(/0/g, '０')
     news[i] = news[i].replace(/1/g, '１')
@@ -262,6 +315,8 @@ client.on('message', function (topic, message) {
     //x= JSON.parse(message.toString());
     //console.log(x.topic);
 
-});
 
+
+
+});
 

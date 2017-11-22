@@ -98,6 +98,7 @@ exports.index_test = function (req, res) {
 
 	var news = [];
 	var weather = '';
+	var online_count = '';
 	var mysql = require('mysql');
 
 	var connection = mysql.createConnection({
@@ -116,6 +117,7 @@ exports.index_test = function (req, res) {
 			weather: weather,
 			weather_day: weather_day,
 			user: req.user,
+			online_count: online_count,
 		});
 	}
 
@@ -134,19 +136,51 @@ exports.index_test = function (req, res) {
 	var now = new time.Date();
 
 
-	var sql = "SELECT * FROM message";
+
+	var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
+	connection.query(sql, function (error, result) {
+		if (error) throw error;
+		console.log("開機數量：" + result[0].online_count);
+		online_count = result[0].online_count;
+		var sql = "SELECT * FROM message";
+		connection.query(sql, function (error, result) {
+			if (error) throw error;
+			//console.log(result);
+			callback(result);
+		});
+	});
+
+
+
+}
+
+exports.tables = function (req, res) {
+
+	var mysql = require('mysql');
+
+	var connection = mysql.createConnection({
+		host: database.MySQL.host,
+		user: database.MySQL.user,
+		password: database.MySQL.password,
+		database: database.MySQL.database,
+	});
+
+	var callback = function (msg) {
+		res.render('tables', {
+			user: req.user,
+			msg:msg
+		});
+	}
+
+	var sql = "SELECT * FROM eb";
 	connection.query(sql, function (error, result) {
 		if (error) throw error;
 		//console.log(result);
 		callback(result);
 	});
 
-}
 
-exports.tables = function (req, res) {
-	res.render('tables', {
-		user: req.user,
-	});
+	
 }
 exports.media = function (req, res) {
 	res.render('media', {
@@ -178,8 +212,32 @@ exports.start_news_mqtt_recive = function (req, res) {
 		callback();
 	});
 }
+exports.stop_news_mqtt_recive = function (req, res) {
+
+
+	var callback = function () {
+		res.redirect('/index_test');
+	}
+
+	var exec = require('exec');
+
+	exec('forever stop ./anything/mqtt.js', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
+}
 
 exports.start_abc_mqtt_recive = function (req, res) {
+
+	var callback2 = function () {
+		res.redirect('/index_test');
+	}
+
+	var exec = require('exec');
 
 
 	var mysql = require('mysql');
@@ -192,18 +250,31 @@ exports.start_abc_mqtt_recive = function (req, res) {
 	});
 
 
-	var callback = function(msg){
+	var callback = function (msg) {
 		var result = ''
-		for(i=0;i<msg.length;i++){
-			result = result + msg[i].content+ '\n'
+		for (i = 0; i < msg.length; i++) {
+			//console.log(i)
+			//console.log(msg.length)
+			result = result + msg[i].content + '\n'
 		}
-		fs.writeFile("./anything/abc.txt",result,function(err){
-			if(err){
+
+		fs.writeFile("./crawler/abc.txt", result, function (err) {
+			if (err) {
 				console.log(err);
-			}else{
+			} else {
 				console.log("The file was saved");
 			}
-		})
+		});
+
+		exec('forever start ./anything/mqtt_abc.js', function (err, out, code) {
+			if (err instanceof Error)
+				throw err;
+			process.stderr.write(err);
+			process.stdout.write(out);
+			//process.exit(code);
+			callback2();
+		});
+
 	}
 
 	var sql = "SELECT * FROM message";
@@ -215,7 +286,27 @@ exports.start_abc_mqtt_recive = function (req, res) {
 
 
 }
+exports.stop_abc_mqtt_recive = function (req, res) {
 
+	var callback = function () {
+		res.redirect('/index_test');
+	}
+
+	var exec = require('exec');
+
+	exec('forever stop ./anything/mqtt_abc.js', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
+
+
+
+
+}
 
 
 exports.start_weather_mqtt_recive = function (req, res) {
@@ -235,7 +326,22 @@ exports.start_weather_mqtt_recive = function (req, res) {
 	});
 }
 
+exports.stop_weather_mqtt_recive = function (req, res) {
+	var callback = function () {
+		res.redirect('/index_test');
+	}
 
+	var exec = require('exec');
+
+	exec('forever stop ./anything/mqtt_weather_week.js', function (err, out, code) {
+		if (err instanceof Error)
+			throw err;
+		process.stderr.write(err);
+		process.stdout.write(out);
+		//process.exit(code);
+		callback();
+	});
+}
 
 
 
