@@ -32,7 +32,7 @@
               <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top">
                   <i class="fa fa-user"></i> 男生使用次數</span>
-                <div class="count green">2,500</div>
+                <div class="count green"><%= all_count %></div>
                 <span class="count_bottom">
                   <i class="green">
                     <i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
@@ -40,7 +40,7 @@
               <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top">
                   <i class="fa fa-user"></i> 當日使用次數</span>
-                <div class="count">0</div>
+                <div class="count"> <%= all_count %></div>
                 <span class="count_bottom">
                   <i class="red">
                     <i class="fa fa-sort-desc"></i>0% </i> From last Week</span>
@@ -376,7 +376,82 @@
                   </div>
                 </div>
               </div>
-
+              <div class="row"></div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="x_panel tile fixed_height_320">
+                    <div class="x_title">
+                      <h2>自訂訊息發送</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                          <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-wrench"></i>
+                          </a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li>
+                              <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                              <a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a class="close-link">
+                            <i class="fa fa-close"></i>
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+  
+                      <div class="widget_summary">
+                        <div class="w_left w_25">
+                          <span>自訂發送</span>
+                        </div>                    
+                        <div class="w_right w_20">
+                              <form action="/mqtt_recive" method="get">
+                                
+                                <input type="text" name="msg">
+                                
+                                
+                                <input type="submit" value="Submit">
+                              </form>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="widget_summary">
+                          <div class="w_left w_25">
+                            <span>自訂訊息庫</span>
+                          </div>                    
+                          <div class="w_right w_20">
+                                <form action="/msg_insert" method="get">
+                                  
+                                  <input type="text" name="msg">
+                                  
+                                  
+                                  <input type="submit" value="Submit">
+                                </form>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+  
+                  
+                     
+                      
+  
+  
+                    </div>
+                  </div>
+                </div>
+              
+              
+              
               <div class="col-md-8 col-sm-8 col-xs-12">
 
 

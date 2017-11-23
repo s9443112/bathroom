@@ -12,7 +12,8 @@ exports.setRequestUrl = function (app,passport) {
         app.get('/media',controller.media);
         app.get('/icon',controller.icon);
         app.get('/test',controller.test);
-        app.get('/crawler_weather',controller.crawler_weather);
+        
+        app.get('/msg_insert',controller.msg_insert);
 
         app.get('/start_news_mqtt_recive',controller.start_news_mqtt_recive);
         app.get('/start_weather_mqtt_recive',controller.start_weather_mqtt_recive);

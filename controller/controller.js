@@ -99,6 +99,7 @@ exports.index_test = function (req, res) {
 	var news = [];
 	var weather = '';
 	var online_count = '';
+	var all_count = 0;
 	var mysql = require('mysql');
 
 	var connection = mysql.createConnection({
@@ -118,6 +119,7 @@ exports.index_test = function (req, res) {
 			weather_day: weather_day,
 			user: req.user,
 			online_count: online_count,
+			all_count: all_count
 		});
 	}
 
@@ -135,6 +137,16 @@ exports.index_test = function (req, res) {
 
 	var now = new time.Date();
 
+
+	var sql = "SELECT * FROM eb";
+	connection.query(sql, function (error, result) {
+		if (error) throw error;
+
+		for (i = 0; i < result.length; i++) {
+			all_count = all_count + result[i].count
+		}
+
+	})
 
 
 	var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
@@ -168,7 +180,7 @@ exports.tables = function (req, res) {
 	var callback = function (msg) {
 		res.render('tables', {
 			user: req.user,
-			msg:msg
+			msg: msg
 		});
 	}
 
@@ -180,7 +192,7 @@ exports.tables = function (req, res) {
 	});
 
 
-	
+
 }
 exports.media = function (req, res) {
 	res.render('media', {
@@ -343,7 +355,27 @@ exports.stop_weather_mqtt_recive = function (req, res) {
 	});
 }
 
+exports.msg_insert = function (req, res) {
+	msg = req.query.msg;
+	var mysql = require('mysql');
 
+	var connection = mysql.createConnection({
+		host: database.MySQL.host,
+		user: database.MySQL.user,
+		password: database.MySQL.password,
+		database: database.MySQL.database,
+	});
+	var callback = function () {
+		res.redirect('/index_test');
+	}
+	var sql = "INSERT INTO `message`(content) VALUE('" + msg + "')";
+	connection.query(sql, function (error, result) {
+
+		console.log(result);
+
+		callback();
+	});
+}
 
 exports.mqtt_recive = function (req, res) {
 

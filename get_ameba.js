@@ -50,11 +50,11 @@ client.on('message', function (topic, message) {
                 var sql = "SELECT `count` FROM `eb` A WHERE A.name = '" + ES001_1 + "'";
                 connection.query(sql, function (error, result) {
                     if (error) throw error;
-                    console.log(result[0]);
-                    var now_point = x.count + result[0];
+                    console.log(result[0].count);
+                    var now_point = parseInt(x.count) + parseInt(result[0].count);
 
                     //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
-                    var sql = "UPDATE `eb` A SET `count` = '" + 1 + "' WHERE A.name= 'ES001-1'";
+                    var sql = "UPDATE `eb` A SET `count` = '" + now_point + "' WHERE A.name= 'ES001-1'";
                     connection.query(sql, function (error, result) {
                         if (error) throw error;
                         console.log(result);
@@ -68,11 +68,11 @@ client.on('message', function (topic, message) {
                 var sql = "SELECT `count` FROM `eb` A WHERE A.name = '" + ES001_2 + "'";
                 connection.query(sql, function (error, result) {
                     if (error) throw error;
-                    console.log(result[0]);
-                    var now_point = x.count + result[0];
+                    console.log(result[0].count);
+                    var now_point = parseInt(x.count) + parseInt(result[0].count);
 
                     //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
-                    var sql = "UPDATE `eb` A SET `count` = '" + 1 + "' WHERE A.name= 'ES001-2'";
+                    var sql = "UPDATE `eb` A SET `count` = '" + now_point + "' WHERE A.name= 'ES001-2'";
                     connection.query(sql, function (error, result) {
                         if (error) throw error;
                         console.log(result);
@@ -86,11 +86,11 @@ client.on('message', function (topic, message) {
                 var sql = "SELECT `count` FROM `eb` A WHERE A.name = '" + ES001_3 + "'";
                 connection.query(sql, function (error, result) {
                     if (error) throw error;
-                    console.log(result[0]);
-                    var now_point = x.count + result[0];
+                    console.log(result[0].count);
+                    var now_point = parseInt(x.count) + parseInt(result[0].count);
 
                     //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
-                    var sql = "UPDATE `eb` A SET `count` = '" + 1 + "' WHERE A.name= 'ES001-3'";
+                    var sql = "UPDATE `eb` A SET `count` = '" + now_point + "' WHERE A.name= 'ES001-3'";
                     connection.query(sql, function (error, result) {
                         if (error) throw error;
                         console.log(result);
@@ -109,13 +109,13 @@ client.on('message', function (topic, message) {
         msg = msg.replace(/"/g, '＂')
         msg = msg.replace(/:/g, '：')
         msg = msg.replace(/~/g, '～')
-    
+
         msg = msg.replace('?', '？')
         msg = msg.replace('!', '！')
         msg = msg.replace(/　/g, '　')
         msg = msg.replace(/  /g, '　')
         msg = msg.replace(/ /g, '　')
-    
+
         msg = msg.replace(/0/g, '０')
         msg = msg.replace(/1/g, '１')
         msg = msg.replace(/2/g, '２')
@@ -126,8 +126,8 @@ client.on('message', function (topic, message) {
         msg = msg.replace(/7/g, '７')
         msg = msg.replace(/8/g, '８')
         msg = msg.replace(/9/g, '９')
-    
-    
+
+
         msg = msg.replace(/A/g, 'Ａ')
         msg = msg.replace(/B/g, 'Ｂ')
         msg = msg.replace(/C/g, 'Ｃ')
@@ -154,8 +154,8 @@ client.on('message', function (topic, message) {
         msg = msg.replace(/X/g, 'Ｘ')
         msg = msg.replace(/Y/g, 'Ｙ')
         msg = msg.replace(/Z/g, 'Ｚ')
-    
-    
+
+
         msg = msg.replace(/a/g, 'ａ')
         msg = msg.replace(/b/g, 'ｂ')
         msg = msg.replace(/c/g, 'ｃ')
@@ -182,8 +182,8 @@ client.on('message', function (topic, message) {
         msg = msg.replace(/x/g, 'ｘ')
         msg = msg.replace(/y/g, 'ｙ')
         msg = msg.replace(/z/g, 'ｚ')
-    
-    
+
+
         msg = msg.replace('「', '（')
         msg = msg.replace('」', '）')
         var str = chineseConv.sify(msg);
@@ -207,8 +207,8 @@ client.on('message', function (topic, message) {
         var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
         connection.query(sql, function (error, result) {
             if (error) throw error;
-            console.log("開機數量："+result[0].online_count);
-            var now_point = result[0].online_count+1;
+            console.log("開機數量：" + result[0].online_count);
+            var now_point = result[0].online_count + 1;
 
             //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
             var sql = "UPDATE `now_eb` A SET `online_count` = '" + now_point + "'";
@@ -231,8 +231,8 @@ client.on('message', function (topic, message) {
         var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
         connection.query(sql, function (error, result) {
             if (error) throw error;
-            console.log("開機數量："+result[0].online_count);
-            var now_point = result[0].online_count+1;
+            console.log("開機數量：" + result[0].online_count);
+            var now_point = result[0].online_count + 1;
 
             //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
             var sql = "UPDATE `now_eb` A SET `online_count` = '" + now_point + "'";
@@ -255,8 +255,8 @@ client.on('message', function (topic, message) {
         var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
         connection.query(sql, function (error, result) {
             if (error) throw error;
-            console.log("開機數量："+result[0].online_count);
-            var now_point = result[0].online_count+1;
+            console.log("開機數量：" + result[0].online_count);
+            var now_point = result[0].online_count + 1;
 
             //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
             var sql = "UPDATE `now_eb` A SET `online_count` = '" + now_point + "'";
@@ -268,6 +268,80 @@ client.on('message', function (topic, message) {
         });
 
         var sql = "UPDATE `eb` A SET `free_bang` = '" + 1 + "' WHERE A.name= 'ES001-3'";
+        connection.query(sql, function (error, result) {
+            if (error) throw error;
+            console.log(result);
+        });
+    }
+
+
+    if (message.toString() == 'ES001-1 exited') {
+        console.log('ES001-1 關機了');
+
+        var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
+        connection.query(sql, function (error, result) {
+            if (error) throw error;
+            console.log("開機數量：" + result[0].online_count);
+            var now_point = result[0].online_count - 1;
+
+            //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
+            var sql = "UPDATE `now_eb` A SET `online_count` = '" + now_point + "'";
+            connection.query(sql, function (error, result) {
+                if (error) throw error;
+                console.log(result);
+            });
+
+        });
+
+        var sql = "UPDATE `eb` A SET `free_bang` = '" + 0 + "' WHERE A.name= 'ES001-1'";
+        connection.query(sql, function (error, result) {
+            if (error) throw error;
+            console.log(result);
+        });
+    }
+    if (message.toString() == 'ES001-2 exited') {
+        console.log('ES001-2 關機了');
+
+        var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
+        connection.query(sql, function (error, result) {
+            if (error) throw error;
+            console.log("開機數量：" + result[0].online_count);
+            var now_point = result[0].online_count - 1;
+
+            //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
+            var sql = "UPDATE `now_eb` A SET `online_count` = '" + now_point + "'";
+            connection.query(sql, function (error, result) {
+                if (error) throw error;
+                console.log(result);
+            });
+
+        });
+
+        var sql = "UPDATE `eb` A SET `free_bang` = '" + 0 + "' WHERE A.name= 'ES001-2'";
+        connection.query(sql, function (error, result) {
+            if (error) throw error;
+            console.log(result);
+        });
+    }
+    if (message.toString() == 'ES001-3 exited') {
+        console.log('ES001-3 關機了');
+
+        var sql = "SELECT `online_count` FROM `now_eb` A WHERE A.id = '1'";
+        connection.query(sql, function (error, result) {
+            if (error) throw error;
+            console.log("開機數量：" + result[0].online_count);
+            var now_point = result[0].online_count - 1;
+
+            //var sql = "INSERT INTO `smart_user` A (point) VALUE('" + now_point + "') WHERE A.user_id= '" + id + "'";
+            var sql = "UPDATE `now_eb` A SET `online_count` = '" + now_point + "'";
+            connection.query(sql, function (error, result) {
+                if (error) throw error;
+                console.log(result);
+            });
+
+        });
+
+        var sql = "UPDATE `eb` A SET `free_bang` = '" + 0 + "' WHERE A.name= 'ES001-3'";
         connection.query(sql, function (error, result) {
             if (error) throw error;
             console.log(result);
